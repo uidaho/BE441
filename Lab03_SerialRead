@@ -1,0 +1,27 @@
+const int ledPin = 13; // The pin that the LED is attached to
+
+void setup() {
+  pinMode(ledPin, OUTPUT);  // Initialize the LED pin as an output
+  Serial.begin(9600);       // Start serial communication at 9600 baud
+}
+
+void loop() {
+  // Check if data is available to read
+  if (Serial.available() > 0) {
+    String input = Serial.readStringUntil('\n'); // Read the input as a string until newline
+
+    // Check if the input starts with 'B'
+    if (input.startsWith("B")) {
+      // Get the number after 'B'
+      int blinkCount = input.substring(1).toInt(); // Convert the substring after 'B' to an integer
+
+      // Blink the LED 'blinkCount' times
+      for (int i = 0; i < blinkCount; i++) {
+        digitalWrite(ledPin, HIGH);  // Turn the LED on
+        delay(500);                  // Wait for 500 milliseconds
+        digitalWrite(ledPin, LOW);   // Turn the LED off
+        delay(500);                  // Wait for 500 milliseconds
+      }
+    }
+  }
+}
