@@ -8,20 +8,21 @@ void setup() {
 void loop() {
   // Check if data is available to read
   if (Serial.available() > 0) {
-    String input = Serial.readStringUntil('\n'); // Read the input as a string until newline
+    char receivedChar = Serial.read(); // Read the incoming byte
 
-    // Check if the input starts with 'B'
-    if (input.startsWith("B")) {
-      // Get the number after 'B'
-      int blinkCount = input.substring(1).toInt(); // Convert the substring after 'B' to an integer
-
-      // Blink the LED 'blinkCount' times
-      for (int i = 0; i < blinkCount; i++) {
-        digitalWrite(ledPin, HIGH);  // Turn the LED on
-        delay(500);                  // Wait for 500 milliseconds
-        digitalWrite(ledPin, LOW);   // Turn the LED off
-        delay(500);                  // Wait for 500 milliseconds
-      }
+    if (receivedChar == 'H') {
+      digitalWrite(ledPin, HIGH); // Turn the LED on
+    }
+    else if (receivedChar == 'L') {
+      digitalWrite(ledPin, LOW); // Turn the LED off
+    }
+    else if (receivedChar == 'B') {
+      // Blink the LED once
+      digitalWrite(ledPin, LOW);  // Ensure LED is off initially
+      delay(500);                 // Wait for 500 milliseconds
+      digitalWrite(ledPin, HIGH); // Turn the LED on
+      delay(500);                 // Wait for 500 milliseconds
+      digitalWrite(ledPin, LOW);  // Turn the LED off again
     }
   }
 }
