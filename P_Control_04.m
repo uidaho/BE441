@@ -1,3 +1,12 @@
+% Define the time vector from 0 to 2000
+t = 0:2000;
+
+% Set the setpoint value
+x = 50;
+
+% Define the proportional gain
+kp = 2;
+
 % Define the integral gain
 ki = 0.01;
 
