@@ -16,10 +16,7 @@ writePWMDutyCycle(a, 'pinX', u);
 
 % Initialize time tracking and data logging
 Delta_t = seconds(datetime('now') - startTime); % Time elapsed in seconds
-Count = 1; % Initialize counter for data points
-t(Count) = 0; % Initial time point (start at 0)
-PV = readVoltage(a, 'A0') * 180 + 32; % Initial process variable (temperature in °F). Adjust the pin as needed
-T(Count) = PV; % Initial temperature
+Count = 0; % Initialize counter for data points
 
 % Main loop to record temperature until `t_end` is reached
 while Delta_t < t_end
