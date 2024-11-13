@@ -1,4 +1,10 @@
-% Matlab code to generate plant response using P-controller
+% An oil heating system represented by the transfer function, 1/(470s+1), it was desired to maintain the output (x) at 50%.
+% Time in this model is measured in seconds.
+% A proportional gain (kp = 2) is used to implement this algorithm. 
+% Plot the setpoint x, oil temperature y and pwm imput u over time for 1000 seconds
+
+
+% Below is the Matlab code to generate plant response using P-controller
 
 
 % Generate a time vector from 0 to 1000 seconds (1-second increments)
