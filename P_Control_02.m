@@ -1,3 +1,12 @@
+% An oil heating system represented by the transfer function, 1/(470s+1). The set point (SP=x) or the desired output is at 50%.
+% Time in this model is measured in seconds.
+% A proportional gain (kp = 2) is used to implement this algorithm. 
+% The controller maintains zero error using bias input equal to SP.
+% Plot the setpoint x, oil temperature y, and PWM input u over time for 1000 seconds.
+
+
+% Below is the Matlab code to generate plant response using P-controller
+
 % Generate a time vector from 0 to 1000 seconds (1-second increments)
 t = 0:1000;
 
@@ -31,7 +40,7 @@ plot(t, u, '--');
 text(80, 60, '\leftarrow u');
 
 % Add annotation for the setpoint (SP) at a specific point
-text(200, 52, 'SP = x');
+text(200, 52, 'Bias = SP = x');
 
 % Add annotation for the system response (y) at a specific point
 text(80, 20, '\leftarrow y');
