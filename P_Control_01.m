@@ -1,4 +1,4 @@
-% An oil heating system represented by the transfer function, 1/(470s+1), it was desired to maintain the output (x) at 50%.
+% An oil heating system represented by the transfer function, 1/(470s+1). The set point (SP=x) or the desired output is at 50%.
 % Time in this model is measured in seconds.
 % A proportional gain (kp = 2) is used to implement this algorithm. 
 % Plot the setpoint x, oil temperature y and pwm imput u over time for 1000 seconds
