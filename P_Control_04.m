@@ -1,3 +1,6 @@
+% Questions
+% For the system with transfer function of 1/(470s+1), a PI controller with kp = 2 and ki = 0.01 was used. External disturbance d of 10 suddenly appeared. Plot the system response. 
+
 % Define the time vector from 0 to 2000
 t = 0:2000;
 
@@ -29,7 +32,8 @@ y = step((x * G + d) * Y, t);
 U = G / (1 + G * F);
 
 % Compute the step response of the control signal
-u = step(x * U, t);
+u = step(x * U-d*F*U, t);
+
 
 % Plot the setpoint as a blue dash-dot line
 plot(t, t * 0 + x, 'b-.'); % blue dash-dot
@@ -44,13 +48,13 @@ plot(t, y, 'k'); % Black line
 plot(t, u, '--'); % dash line
 
 % Add text annotation for the control signal
-text(302, 83, '\leftarrow u');
+text(240, 82, '\leftarrow u');
 
 % Add text annotation for the setpoint
 text(80, 52, 'SP = x');
 
 % Add text annotation for the output response
-text(103, 20, '\leftarrow y');
+text(90, 20, '\leftarrow y');
 
 % Label the x-axis
 xlabel('Time (s)');
